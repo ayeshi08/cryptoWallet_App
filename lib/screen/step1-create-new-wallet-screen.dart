@@ -15,22 +15,29 @@ class CreateNewWalletScreen extends StatefulWidget {
 class _CreateNewWalletScreenState extends State<CreateNewWalletScreen> {
   @override
   Widget build(BuildContext context) {
+    Size mq = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: AppColors.appMainColor,
-      appBar: AppBar(
-        backgroundColor: AppColors.appMainColor,
+      appBar: AppBar(automaticallyImplyLeading: false,
+        backgroundColor: AppColors.appMainColor,titleSpacing: 0,
         title: Text("Create New Wallet"),
+        leading: GestureDetector(onTap: () {
+
+            Navigator.pop(context);
+
+        },
+            child: Icon(Icons.arrow_back)),
       ),
       body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 48.0, vertical: 20),
+        padding: EdgeInsets.symmetric(horizontal: mq.width*0.1,
+            vertical: mq.height*0.03
+        ),
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Image(image: AssetImage('assets/images/Group 7.png')),
-              SizedBox(
-                height: 40,
-              ),
+              SizedBox(height: mq.height*0.039,),
               Text(
                 'Create Password',
                 style: TextStyle(
@@ -39,9 +46,7 @@ class _CreateNewWalletScreenState extends State<CreateNewWalletScreen> {
                     fontSize: 22,
                     color: AppColors.TextColor),
               ),
-              SizedBox(
-                height: 18,
-              ),
+              SizedBox(height: mq.height*0.012,),
               Text(
                 'This password will unlock your wallet only on this device',
                 style: TextStyle(
@@ -51,12 +56,10 @@ class _CreateNewWalletScreenState extends State<CreateNewWalletScreen> {
                   color: Color.fromRGBO(152, 152, 152, 1),
                 ),
               ),
+              SizedBox(height: mq.height*0.04,),
               SizedBox(
-                height: 25,
-              ),
-              SizedBox(
-                width: 310,
-                height: 40,
+                height: mq.height*0.08,
+                width: mq.height*0.9,
                 child: TextFormField(
                   decoration: new InputDecoration(
                     hintText: "New Password",
@@ -76,12 +79,10 @@ class _CreateNewWalletScreenState extends State<CreateNewWalletScreen> {
                   ),
                 ),
               ),
+              SizedBox(height: mq.height*0.019,),
               SizedBox(
-                height: 18,
-              ),
-              SizedBox(
-                width: 310,
-                height: 40,
+                width: mq.width * 0.9,
+                height: mq.height * 0.07,
                 child: TextFormField(
                   decoration: new InputDecoration(
                     hintText: "Confirm Password",
@@ -103,9 +104,7 @@ class _CreateNewWalletScreenState extends State<CreateNewWalletScreen> {
                   ),
                 ),
               ),
-              SizedBox(
-                height: 12,
-              ),
+              SizedBox(height: mq.height*0.019,),
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -134,14 +133,12 @@ class _CreateNewWalletScreenState extends State<CreateNewWalletScreen> {
                   )
                 ],
               ),
-              SizedBox(
-                height: 50,
-              ),
+              SizedBox(height: mq.height*0.05,),
               InkWell(
                 child:
                 Container(
-                  width: 310,
-                  height: 60,
+                  width: mq.width * 0.9,
+                  height: mq.height * 0.08,
                   decoration: BoxDecoration(
                       color: AppColors.appSecondaryColor,
                       borderRadius: BorderRadius.circular(10)),
@@ -160,9 +157,7 @@ class _CreateNewWalletScreenState extends State<CreateNewWalletScreen> {
                      Get.to(CreateWalletSecondScreen());
                 },
               ),
-              SizedBox(
-                height: 20,
-              ),
+              SizedBox(height: mq.height*0.06,),
               Text.rich(
                 TextSpan(
                   children: [

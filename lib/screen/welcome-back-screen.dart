@@ -10,12 +10,13 @@ class WelcomeBackScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Size mq = MediaQuery.of(context).size;
     return Scaffold(backgroundColor: AppColors.appSecondaryColor,
       appBar: CustomAppBar(),
        body: Column(
         children: [
         Padding(
-        padding: EdgeInsets.symmetric(horizontal: 33.0),
+        padding: EdgeInsets.symmetric(horizontal: mq.width * 0.15),
     child: SingleChildScrollView(
     child: Column(
     children: [
@@ -27,9 +28,7 @@ class WelcomeBackScreen extends StatelessWidget {
     fontSize: 36,
     color: AppColors.appMainColor),
     ),
-    Padding(
-    padding: EdgeInsets.only(left: 40, right: 40, top: 20),
-    child: Text(
+    Text(
     'Please login to your account using your password',
     style: TextStyle(
     color: AppColors.appMainColor,
@@ -38,18 +37,16 @@ class WelcomeBackScreen extends StatelessWidget {
     fontSize: 16,
     ),
     ),
-    ),
     ],
     ),
     ),
     ),
-    SizedBox(
-    height: 35,
-    ),
+          SizedBox(
+            height: mq.height * 0.1,
+          ),
     Expanded(
     child: Container(
-    //height: double.infinity,
-  //  width: MediaQuery.of(context).size.width,
+      width: mq.width * 1,
     decoration: BoxDecoration(
     color: AppColors.appMainColor,
     borderRadius: BorderRadius.only(
@@ -58,7 +55,7 @@ class WelcomeBackScreen extends StatelessWidget {
     ),
     ),
     child: Padding(
-    padding: const EdgeInsets.only(top: 40.0, left: 45, right: 45),
+    padding:  EdgeInsets.symmetric(horizontal: mq.width * 0.068, vertical: mq.height * 0.07),
     child:
     SingleChildScrollView(
     child: Column(
@@ -71,12 +68,12 @@ class WelcomeBackScreen extends StatelessWidget {
     fontWeight: FontWeight.w500,
     fontSize: 16),
     ),
+      SizedBox(
+        height: mq.height * 0.04,
+      ),
     SizedBox(
-    height: 25,
-    ),
-    SizedBox(
-    width: 310,
-    height: 40,
+      width: mq.width * 0.9,
+      height: mq.height * 0.07,
     child: TextFormField(
     decoration: new InputDecoration(
     hintText: "Password",
@@ -96,12 +93,13 @@ class WelcomeBackScreen extends StatelessWidget {
     ),
     ),
     ),
-
-    SizedBox(height: 70,),
+      SizedBox(
+        height: mq.height * 0.04,
+      ),
     InkWell(
     child: Container(
-    width: 310,
-    height: 60,
+      width: mq.width * 0.9,
+      height: mq.height * 0.08,
     decoration:
     BoxDecoration(color: AppColors.appSecondaryColor,borderRadius: BorderRadius.circular(10)),
     child: Center(
@@ -119,7 +117,9 @@ class WelcomeBackScreen extends StatelessWidget {
     Get.to(HomePageScreen());
     },
     ),
-    SizedBox(height: 40,),
+      SizedBox(
+        height: mq.height * 0.06,
+      ),
       Align(alignment: Alignment.bottomCenter,
         child: Container(width:296 ,height: 42,
           child: Text.rich(

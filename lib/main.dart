@@ -1,3 +1,5 @@
+
+//import 'package:device_preview_plus/device_preview_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -5,7 +7,13 @@ import 'screen/home-screen.dart';
 import 'screen/splash-screen.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    // DevicePreview(
+    //   enabled: true,  // Set to `true` to enable preview, `false` for normal run
+    //   builder: (context) =>
+    MyApp(),
+   // ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -20,7 +28,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home:  HomePageScreen(),
+      home:  SplashScreen(),
     );
   }
 }

@@ -10,13 +10,14 @@ class GetStartedScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Size mq = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: AppColors.appSecondaryColor,
       appBar: CustomAppBar(),
       //automaticallyImplyLeading: false,),
       body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 33.0),
-        child: Column(
+        padding: EdgeInsets.symmetric(horizontal: mq.width*0.09),
+        child: Column(crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
               'Wallet Setup',
@@ -26,28 +27,27 @@ class GetStartedScreen extends StatelessWidget {
                   fontSize: 36,
                   color: AppColors.appMainColor),
             ),
-            Padding(
-              padding: const EdgeInsets.only(left: 40,right: 40,top:20),
-              child: Text(
-                'Import an exsiting wallet or create a new one',
-                style: TextStyle(
-                  color: AppColors.appMainColor,
-                  fontFamily: 'Poppins-Black',
-                  fontWeight: FontWeight.w500,
-                  fontSize: 16,
-                ),
+            SizedBox(height: mq.height*0.017,),
+            Text(
+              'Import an exsiting wallet or create a new one',
+              style: TextStyle(
+                color: AppColors.appMainColor,
+                fontFamily: 'Poppins-Black',
+                fontWeight: FontWeight.w500,
+                fontSize: 16,
               ),
             ),
             Center(
-              child: Container(width: 338,height: 338,
+              child: Container(width: mq.width*1,
+                height:  mq.height*0.45,
                 child: Image(
                   image: AssetImage('assets/images/Sale-19.png'),
                 ),
               ),
             ),
             Container(
-              height: 60,
-              width: 314,
+              height: mq.height*0.08,
+              width: mq.height*0.9,
               child: Center(
                 child: Text(
                   'Import Existing',
@@ -62,14 +62,14 @@ class GetStartedScreen extends StatelessWidget {
                 borderRadius: BorderRadius.circular(20),
               ),
             ),
-            SizedBox(height: 20,),
+            SizedBox(height: mq.height*0.03,),
             GestureDetector(onTap: () {
               Get.to(ImportWalletScreen());
             },
               child: Material(elevation: 10,color: AppColors.appSecondaryColor,   borderRadius: BorderRadius.circular(20),
                 child: Container(
-                  height: 60,
-                  width: 314,
+                  height: mq.height*0.08,
+                  width: mq.height*0.9,
                   child: Center(
                     child: Text(
                       'Create new',

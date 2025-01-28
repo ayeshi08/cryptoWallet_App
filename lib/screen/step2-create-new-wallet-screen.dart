@@ -15,11 +15,13 @@ class _CreateWalletSecondScreenState extends State<CreateWalletSecondScreen> {
 
   @override
   Widget build(BuildContext context) {
-    var size = MediaQuery.of(context).size;
+
+    Size mq = MediaQuery.of(context).size;
 
     /*24 is for notification bar on Android*/
-    final double itemHeight = 35;
-    final double itemWidth = 75;
+    final double mqHeight = mq.height*0.045;
+   final double mqWidth = mq.width*0.21;
+
     return Scaffold(
       backgroundColor: AppColors.appMainColor,
       appBar: AppBar(
@@ -27,15 +29,15 @@ class _CreateWalletSecondScreenState extends State<CreateWalletSecondScreen> {
         title: Text("Create New Wallet"),
       ),
       body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 48.0, vertical: 20),
+        padding: EdgeInsets.symmetric(horizontal: mq.width*0.1,
+            vertical: mq.height*0.03
+        ),
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Image(image: AssetImage('assets/images/Group 7-1.png')),
-              SizedBox(
-                height: 40,
-              ),
+              SizedBox(height: mq.height*0.039,),
               Text(
                 'Secret Recovery Phrase',
                 style: TextStyle(
@@ -44,9 +46,7 @@ class _CreateWalletSecondScreenState extends State<CreateWalletSecondScreen> {
                     fontSize: 22,
                     color: AppColors.TextColor),
               ),
-              SizedBox(
-                height: 10,
-              ),
+              SizedBox(height: mq.height*0.01,),
               Text(
                 'This is your secret recovery. Write it down and save it somewhere This is your secret recovery. Write it down and save it somewhere',
                 style: TextStyle(
@@ -56,19 +56,23 @@ class _CreateWalletSecondScreenState extends State<CreateWalletSecondScreen> {
                   color: Color.fromRGBO(152, 152, 152, 1),
                 ),
               ),
-            Container(width:310 ,height: 310,
+              SizedBox(height: mq.height*0.02,),
+            Container(
+              width:mq.width*0.9 ,
+              height:mq.width*0.87 ,
+            //  height: 310,
              color:  Color.fromRGBO(248, 248, 248, 1),
             child: Padding(
               padding: const EdgeInsets.all(13.0),
               child: GridView.builder(  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3,
                 mainAxisSpacing: 24,
                 crossAxisSpacing: 15,
-                childAspectRatio: (itemWidth / itemHeight),
+                childAspectRatio: (mqWidth / mqHeight),
               ),
 
                 itemBuilder: (_, index) =>
                     Container(
-                        margin: EdgeInsets.all(0.8),
+                        margin: EdgeInsets.all(  mq.height*0.002),
                         decoration: BoxDecoration(color: AppColors.appMainColor,border:Border.all(color: AppColors.appSecondaryColor,width: 1.5),
                       borderRadius: BorderRadius.circular(5),
                         ),
@@ -83,13 +87,11 @@ class _CreateWalletSecondScreenState extends State<CreateWalletSecondScreen> {
 
 
 
-              SizedBox(
-                height: 20,
-              ),
+              SizedBox(height: mq.height*0.02,),
               InkWell(
                 child: Container(
-                  width: 310,
-                  height: 60,
+                  width: mq.width * 0.9,
+                  height: mq.height * 0.08,
                   decoration: BoxDecoration(
                       color: AppColors.appSecondaryColor,
                       borderRadius: BorderRadius.circular(10)),
@@ -108,9 +110,7 @@ class _CreateWalletSecondScreenState extends State<CreateWalletSecondScreen> {
                      Get.to(CreateWalletThirdScreen());
                 },
               ),
-              SizedBox(
-                height: 20,
-              ),
+              SizedBox(height: mq.height*0.02,),
               Align(alignment: Alignment.bottomCenter,
                 child: Text.rich(
                   TextSpan(

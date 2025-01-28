@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 import '../styles/app-color.dart';
 import 'onboarding-screen.dart';
 
+ late  Size mq;
 class SplashScreen extends StatefulWidget {
   @override
   _SplashScreenState createState() => _SplashScreenState();
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+
   @override
   void initState() {
     super.initState();
@@ -22,6 +24,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
+    mq = MediaQuery.of(context).size;
     return Scaffold(appBar: AppBar( backgroundColor: AppColors.appMainColor,),
         backgroundColor: AppColors.appMainColor,
         body: Center(

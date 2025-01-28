@@ -26,6 +26,7 @@ class ImageSlider extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Size mq = MediaQuery.of(context).size;
     final controller = Get.put(SliderIconController());
     return Scaffold(
       backgroundColor: AppColors.appMainColor,
@@ -52,21 +53,23 @@ class ImageSlider extends StatelessWidget {
                       height: 12,
                     ),
                     Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                      padding:  EdgeInsets.symmetric(horizontal: mq.width*0.1 ),
                       child: Material(
                         elevation: 12,
                         color: Colors.transparent,
                         child: Container(
-                          height: 404,
-                          width: 287,
+                          height:
+                          mq.height*0.53,
+                          //404,
+                          width: mq.width*0.9,
                           decoration: BoxDecoration(
                             color: AppColors.appMainColor,
                             borderRadius: BorderRadius.circular(20),
                           ),
                           child: Center(
                             child: Container(
-                              height: 270,
-                              width: 270,
+                              height: mq.height*0.35,
+                              width: mq.width*0.7,
                               child: Image.asset(
                                 sliderItems[index]['image']!,
                                 fit: BoxFit.cover,
@@ -81,7 +84,7 @@ class ImageSlider extends StatelessWidget {
               );
             },
             options: CarouselOptions(
-              height: 450,
+              height: mq.height*0.6,
               onPageChanged: (index, _) =>
                   controller.updatePageIndicator(index),
               enlargeCenterPage: false,
@@ -91,10 +94,27 @@ class ImageSlider extends StatelessWidget {
             ),
           ),
           SizedBox(
-            height: 20,
+            height: mq.height*0.01,
+          ),
+          Container(
+            height: mq.height*0.09,
+            width: mq.width*0.8,
+            child: Align(
+                alignment: Alignment.center,
+                child: Text(
+                  'Here you can write desctroption of the page and find out what you want.',
+                  style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w400,
+                      fontFamily: 'Montserrat-cariable_wght',
+                      color: Colors.black38),
+                )),
+          ),
+          SizedBox(
+            height: mq.height*0.06,
           ),
           Obx(
-            () => Row(
+                () => Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 for (int i = 0; i < 3; i++)
@@ -108,24 +128,7 @@ class ImageSlider extends StatelessWidget {
             ),
           ),
           SizedBox(
-            height: 20,
-          ),
-          Container(
-            height: 81,
-            width: 287,
-            child: Align(
-                alignment: Alignment.center,
-                child: Text(
-                  'Here you can write desctroption of the page and find out what you want.',
-                  style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w400,
-                      fontFamily: 'Montserrat-cariable_wght',
-                      color: Colors.black38),
-                )),
-          ),
-          SizedBox(
-            height: 15,
+            height: mq.height*0.040,
           ),
           GestureDetector(
               onTap: () {

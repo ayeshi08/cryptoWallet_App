@@ -7,6 +7,7 @@ class ImportCustomTokenScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Size mq = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: AppColors.appMainColor,
       appBar: PreferredSize(
@@ -18,15 +19,19 @@ class ImportCustomTokenScreen extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 15.0),
+          padding: EdgeInsets.symmetric(horizontal: mq.width * 0.05),
           child: Column(
             children: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Icon(Icons.arrow_back),
+                  GestureDetector(
+                      onTap: () {
+                        Navigator.pop(context);
+                      },
+                      child: Icon(Icons.arrow_back)),
                   SizedBox(
-                    width: 15,
+                    width: mq.width * 0.03,
                   ),
                   Text(
                     'Import Custom Token',
@@ -37,35 +42,47 @@ class ImportCustomTokenScreen extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(height: 20,),
+              SizedBox(
+                height: mq.height * 0.03,
+              ),
               Container(
                 child: Padding(
-                  padding: const EdgeInsets.all(25.0),
+                  padding: EdgeInsets.all(mq.width * 0.04),
                   child: Center(
-                    child: Row(crossAxisAlignment: CrossAxisAlignment.start,
-        
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Icon(Icons.error_outline),
-                        SizedBox(width: 10,),
+                        SizedBox(
+                          width: mq.width * 0.03,
+                        ),
                         Expanded(
-                          child: Text(maxLines: null,
+                          child: Text(
+                            maxLines: null,
                             overflow: TextOverflow.visible,
-        
                             'Anyone can  create token,  including fake versions of existing token. Learn more about scams and security risks.',
-                        style: TextStyle(fontSize: 14,fontWeight: FontWeight.w500,fontFamily: 'Poppins'),  ),
+                            style: TextStyle(
+                                fontSize: 14,
+                                fontWeight: FontWeight.w500,
+                                fontFamily: 'Poppins'),
+                          ),
                         ),
                       ],
                     ),
                   ),
                 ),
-                width: 315,
-                height: 140,
-                decoration: BoxDecoration(color: Colors.blue.shade100),
+                width: mq.width * 0.88,
+                height: mq.height * 0.18,
+                decoration: BoxDecoration(
+                    color: Colors.blue.shade100,
+                    borderRadius: BorderRadius.circular(8)),
               ),
-              SizedBox(height: 30,),
               SizedBox(
-                width: 310,
-                height: 60,
+                height: mq.height * 0.07,
+              ),
+              SizedBox(
+                height: mq.height * 0.07,
+                width: mq.height * 0.9,
                 child: TextFormField(
                   decoration: new InputDecoration(
                     hintText: "Token Address",
@@ -85,16 +102,25 @@ class ImportCustomTokenScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              Align(alignment: Alignment.bottomRight,
+              Align(
+                  alignment: Alignment.bottomRight,
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 15.0),
-                    child: Text('0/42',style: TextStyle(color: Color.fromRGBO(152, 152, 152, 1),
-                        fontFamily: 'Poppins',fontWeight:FontWeight.w500 ,fontSize: 12),),
+                    child: Text(
+                      '0/42',
+                      style: TextStyle(
+                          color: Color.fromRGBO(152, 152, 152, 1),
+                          fontFamily: 'Poppins',
+                          fontWeight: FontWeight.w500,
+                          fontSize: 12),
+                    ),
                   )),
-              SizedBox(height: 18,),
               SizedBox(
-                width: 310,
-                height: 60,
+                height: mq.height * 0.03,
+              ),
+              SizedBox(
+                height: mq.height * 0.07,
+                width: mq.height * 0.9,
                 child: TextFormField(
                   decoration: new InputDecoration(
                     hintText: "Token Symbol",
@@ -114,10 +140,12 @@ class ImportCustomTokenScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(height: 18,),
               SizedBox(
-                width: 310,
-                height: 60,
+                height: mq.height * 0.02,
+              ),
+              SizedBox(
+                height: mq.height * 0.07,
+                width: mq.height * 0.9,
                 child: TextFormField(
                   decoration: new InputDecoration(
                     hintText: "Token Decimal",
@@ -137,39 +165,48 @@ class ImportCustomTokenScreen extends StatelessWidget {
                   ),
                 ),
               ),
-        SizedBox(height: 15,),            Container(
-                width: 310,
-                height: 60,
-                decoration:
-                BoxDecoration(color: AppColors.appSecondaryColor,borderRadius: BorderRadius.circular(10)),
+              SizedBox(
+                height: mq.height * 0.02,
+              ),
+              Container(
+                width: mq.width * 0.9,
+                height: mq.height * 0.08,
+                decoration: BoxDecoration(
+                    color: AppColors.appSecondaryColor,
+                    borderRadius: BorderRadius.circular(10)),
                 child: Center(
                     child: Text(
-                      'Import ',
-                      style: TextStyle(
-                        color: AppColors.appMainColor,
-                        fontWeight: FontWeight.w600,
-                        fontSize: 16,
-                        fontFamily: 'Poppins.Black',
-                      ),
-                    )),
+                  'Import ',
+                  style: TextStyle(
+                    color: AppColors.appMainColor,
+                    fontWeight: FontWeight.w600,
+                    fontSize: 16,
+                    fontFamily: 'Poppins.Black',
+                  ),
+                )),
               ),
-              SizedBox(height: 15,),
-              Material(elevation: 4,borderRadius: BorderRadius.circular(10),
+              SizedBox(
+                height: mq.height * 0.021,
+              ),
+              Material(
+                elevation: 4,
+                borderRadius: BorderRadius.circular(10),
                 child: Container(
-                  width: 310,
-                  height: 60,
-                  decoration:
-                  BoxDecoration(color: AppColors.appMainColor,borderRadius: BorderRadius.circular(10)),
+                  width: mq.width * 0.9,
+                  height: mq.height * 0.08,
+                  decoration: BoxDecoration(
+                      color: AppColors.appMainColor,
+                      borderRadius: BorderRadius.circular(10)),
                   child: Center(
                       child: Text(
-                        'Cancel',
-                        style: TextStyle(
-                          color: AppColors.appSecondaryColor,
-                          fontWeight: FontWeight.w500,
-                          fontSize: 16,
-                          fontFamily: 'Poppins.Black',
-                        ),
-                      )),
+                    'Cancel',
+                    style: TextStyle(
+                      color: AppColors.appSecondaryColor,
+                      fontWeight: FontWeight.w500,
+                      fontSize: 16,
+                      fontFamily: 'Poppins.Black',
+                    ),
+                  )),
                 ),
               ),
             ],
