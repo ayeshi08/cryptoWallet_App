@@ -1,4 +1,4 @@
-import 'package:crypto_wallet_app/styles/app-color.dart';
+import 'package:crypto_wallet_app/styles/app_color.dart';
 import 'package:flutter/material.dart';
 
 class CircularContainer extends StatelessWidget {

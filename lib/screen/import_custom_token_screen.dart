@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 
-import '../styles/app-color.dart';
+import '../styles/app_color.dart';
 
 class ImportCustomTokenScreen extends StatelessWidget {
   const ImportCustomTokenScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    Size mq = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: AppColors.appMainColor,
       appBar: PreferredSize(
@@ -19,7 +20,7 @@ class ImportCustomTokenScreen extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: mq.width * 0.05),
+          padding: EdgeInsets.symmetric(horizontal: 20.w,),
           child: Column(
             children: [
               Row(
@@ -27,42 +28,36 @@ class ImportCustomTokenScreen extends StatelessWidget {
                 children: [
                   GestureDetector(
                       onTap: () {
-                        Navigator.pop(context);
+                        Get.back();
                       },
                       child: Icon(Icons.arrow_back)),
-                  SizedBox(
-                    width: mq.width * 0.03,
-                  ),
+                  20.horizontalSpace,
                   Text(
                     'Import Custom Token',
                     style: TextStyle(
-                        fontSize: 20,
+                        fontSize: 20.sp,
                         fontWeight: FontWeight.w700,
                         fontFamily: 'NunitoSans'),
                   ),
                 ],
               ),
-              SizedBox(
-                height: mq.height * 0.03,
-              ),
+              22.verticalSpace,
               Container(
                 child: Padding(
-                  padding: EdgeInsets.all(mq.width * 0.04),
+                  padding: EdgeInsets.all(12.w),
                   child: Center(
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Icon(Icons.error_outline),
-                        SizedBox(
-                          width: mq.width * 0.03,
-                        ),
+                        14.horizontalSpace,
                         Expanded(
                           child: Text(
                             maxLines: null,
                             overflow: TextOverflow.visible,
                             'Anyone can  create token,  including fake versions of existing token. Learn more about scams and security risks.',
                             style: TextStyle(
-                                fontSize: 14,
+                                fontSize: 14.sp,
                                 fontWeight: FontWeight.w500,
                                 fontFamily: 'Poppins'),
                           ),
@@ -71,18 +66,16 @@ class ImportCustomTokenScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-                width: mq.width * 0.88,
-                height: mq.height * 0.18,
+                width: 315.w,
+                height: 200.h,
                 decoration: BoxDecoration(
                     color: Colors.blue.shade100,
                     borderRadius: BorderRadius.circular(8)),
               ),
+              20.verticalSpace,
               SizedBox(
-                height: mq.height * 0.07,
-              ),
-              SizedBox(
-                height: mq.height * 0.07,
-                width: mq.height * 0.9,
+                height: 60.h,
+                width: 310.w,
                 child: TextFormField(
                   decoration: new InputDecoration(
                     hintText: "Token Address",
@@ -97,7 +90,7 @@ class ImportCustomTokenScreen extends StatelessWidget {
                   style: new TextStyle(
                     color: Color.fromRGBO(152, 152, 152, 1),
                     fontFamily: "Poppins-Regular",
-                    fontSize: 14,
+                    fontSize: 14.sp,
                     fontWeight: FontWeight.w400,
                   ),
                 ),
@@ -112,15 +105,13 @@ class ImportCustomTokenScreen extends StatelessWidget {
                           color: Color.fromRGBO(152, 152, 152, 1),
                           fontFamily: 'Poppins',
                           fontWeight: FontWeight.w500,
-                          fontSize: 12),
+                          fontSize: 12.sp),
                     ),
                   )),
+             15.verticalSpace,
               SizedBox(
-                height: mq.height * 0.03,
-              ),
-              SizedBox(
-                height: mq.height * 0.07,
-                width: mq.height * 0.9,
+                height: 60.h,
+                width: 310.w,
                 child: TextFormField(
                   decoration: new InputDecoration(
                     hintText: "Token Symbol",
@@ -135,17 +126,15 @@ class ImportCustomTokenScreen extends StatelessWidget {
                   style: new TextStyle(
                     color: Color.fromRGBO(152, 152, 152, 1),
                     fontFamily: "Poppins-Regular",
-                    fontSize: 14,
+                    fontSize: 14.sp,
                     fontWeight: FontWeight.w400,
                   ),
                 ),
               ),
+        14.verticalSpace,
               SizedBox(
-                height: mq.height * 0.02,
-              ),
-              SizedBox(
-                height: mq.height * 0.07,
-                width: mq.height * 0.9,
+                height: 60.h,
+                width: 310.w,
                 child: TextFormField(
                   decoration: new InputDecoration(
                     hintText: "Token Decimal",
@@ -160,17 +149,15 @@ class ImportCustomTokenScreen extends StatelessWidget {
                   style: new TextStyle(
                     color: Color.fromRGBO(152, 152, 152, 1),
                     fontFamily: "Poppins-Regular",
-                    fontSize: 14,
+                    fontSize: 14.sp,
                     fontWeight: FontWeight.w400,
                   ),
                 ),
               ),
-              SizedBox(
-                height: mq.height * 0.02,
-              ),
+              14.verticalSpace,
               Container(
-                width: mq.width * 0.9,
-                height: mq.height * 0.08,
+                height: 60.h,
+                width: 310.w,
                 decoration: BoxDecoration(
                     color: AppColors.appSecondaryColor,
                     borderRadius: BorderRadius.circular(10)),
@@ -180,20 +167,18 @@ class ImportCustomTokenScreen extends StatelessWidget {
                   style: TextStyle(
                     color: AppColors.appMainColor,
                     fontWeight: FontWeight.w600,
-                    fontSize: 16,
+                    fontSize: 16.sp,
                     fontFamily: 'Poppins.Black',
                   ),
                 )),
               ),
-              SizedBox(
-                height: mq.height * 0.021,
-              ),
+           15.verticalSpace,
               Material(
-                elevation: 4,
+                elevation: 4.r,
                 borderRadius: BorderRadius.circular(10),
                 child: Container(
-                  width: mq.width * 0.9,
-                  height: mq.height * 0.08,
+                  height: 60.h,
+                  width: 310.w,
                   decoration: BoxDecoration(
                       color: AppColors.appMainColor,
                       borderRadius: BorderRadius.circular(10)),
@@ -203,12 +188,13 @@ class ImportCustomTokenScreen extends StatelessWidget {
                     style: TextStyle(
                       color: AppColors.appSecondaryColor,
                       fontWeight: FontWeight.w500,
-                      fontSize: 16,
+                      fontSize: 16.sp,
                       fontFamily: 'Poppins.Black',
                     ),
                   )),
                 ),
               ),
+              10.verticalSpace,
             ],
           ),
         ),

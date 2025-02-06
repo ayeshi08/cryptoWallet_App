@@ -1,4 +1,4 @@
-import 'crypto-coins-model.dart';
+import 'cryptoCoin_model.dart';
 
 class CryptoCoinList {
   static List <CryptoCoinsModel> CryptoCoins = [

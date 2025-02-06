@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
-import '../styles/app-color.dart';
-import '../widget/checkbox-widget.dart';
-import 'step2-create-new-wallet-screen.dart';
+import '../styles/app_color.dart';
+import '../widget/checkbox_widget.dart';
+import 'second_create_new_wallet_screen.dart';
 
 class CreateNewWalletScreen extends StatefulWidget {
   const CreateNewWalletScreen({super.key});
@@ -15,7 +16,6 @@ class CreateNewWalletScreen extends StatefulWidget {
 class _CreateNewWalletScreenState extends State<CreateNewWalletScreen> {
   @override
   Widget build(BuildContext context) {
-    Size mq = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: AppColors.appMainColor,
       appBar: AppBar(automaticallyImplyLeading: false,
@@ -23,43 +23,43 @@ class _CreateNewWalletScreenState extends State<CreateNewWalletScreen> {
         title: Text("Create New Wallet"),
         leading: GestureDetector(onTap: () {
 
-            Navigator.pop(context);
+          Get.back();
 
         },
             child: Icon(Icons.arrow_back)),
       ),
       body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: mq.width*0.1,
-            vertical: mq.height*0.03
+        padding: EdgeInsets.symmetric(horizontal: 20.w,
+
         ),
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Image(image: AssetImage('assets/images/Group 7.png')),
-              SizedBox(height: mq.height*0.039,),
+              Image(image: AssetImage('assets/images/Group 7.png'),width: 274.w,height: 83.h,),
+              20.verticalSpace,
               Text(
                 'Create Password',
                 style: TextStyle(
                     fontFamily: 'Poppins-Black',
                     fontWeight: FontWeight.w500,
-                    fontSize: 22,
+                    fontSize: 22.sp,
                     color: AppColors.TextColor),
               ),
-              SizedBox(height: mq.height*0.012,),
+              20.verticalSpace,
               Text(
                 'This password will unlock your wallet only on this device',
                 style: TextStyle(
                   fontFamily: 'Poppins-Black',
                   fontWeight: FontWeight.w400,
-                  fontSize: 14,
+                  fontSize: 14.sp,
                   color: Color.fromRGBO(152, 152, 152, 1),
                 ),
               ),
-              SizedBox(height: mq.height*0.04,),
+              30.verticalSpace,
               SizedBox(
-                height: mq.height*0.08,
-                width: mq.height*0.9,
+                width: 310.w,
+                height: 60.h,
                 child: TextFormField(
                   decoration: new InputDecoration(
                     hintText: "New Password",
@@ -74,37 +74,35 @@ class _CreateNewWalletScreenState extends State<CreateNewWalletScreen> {
                   style: new TextStyle(
                     color: Color.fromRGBO(152, 152, 152, 1),
                     fontFamily: "Poppins-Regular",
-                    fontSize: 14,
+                    fontSize: 14.sp,
                     fontWeight: FontWeight.w400,
                   ),
                 ),
               ),
-              SizedBox(height: mq.height*0.019,),
+              20.verticalSpace,
               SizedBox(
-                width: mq.width * 0.9,
-                height: mq.height * 0.07,
+                width: 310.w,
+                height: 60.h,
                 child: TextFormField(
                   decoration: new InputDecoration(
                     hintText: "Confirm Password",
-                    //enabledBorder:InputBorder.none ,
-                    //  focusedBorder:InputBorder.none ,
                     fillColor: Color.fromRGBO(248, 248, 248, 1),
                     filled: true,
                     border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(5.0),
+                      borderRadius: BorderRadius.circular(5.r),
                       borderSide: BorderSide.none,
                     ),
                   ),
                   keyboardType: TextInputType.emailAddress,
                   style: new TextStyle(
                     fontFamily: "Poppins-Regular",
-                    fontSize: 14,
+                    fontSize: 14.sp,
                     fontWeight: FontWeight.w400,
                     color: Color.fromRGBO(152, 152, 152, 1),
                   ),
                 ),
               ),
-              SizedBox(height: mq.height*0.019,),
+              20.verticalSpace,
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -117,7 +115,7 @@ class _CreateNewWalletScreenState extends State<CreateNewWalletScreen> {
                           text:
                           'I understand  crypto cannot recover this password for me',
                           style: TextStyle(
-                            fontSize: 12,
+                            fontSize: 12.sp,
                             fontWeight: FontWeight.w500,
                             fontFamily: 'Poppins',
                             color: Color.fromRGBO(152, 152, 152, 1),
@@ -125,7 +123,7 @@ class _CreateNewWalletScreenState extends State<CreateNewWalletScreen> {
                         ),
                         TextSpan(
                           text: 'Learn More',
-                          style: TextStyle(
+                          style: TextStyle(fontSize: 12.sp,
                               fontWeight: FontWeight.bold, color: AppColors.appSecondaryColor),
                         ),
                       ]),
@@ -133,22 +131,22 @@ class _CreateNewWalletScreenState extends State<CreateNewWalletScreen> {
                   )
                 ],
               ),
-              SizedBox(height: mq.height*0.05,),
+              30.verticalSpace,
               InkWell(
                 child:
                 Container(
-                  width: mq.width * 0.9,
-                  height: mq.height * 0.08,
+                  height: 60.h,
+                  width: 310.w,
                   decoration: BoxDecoration(
                       color: AppColors.appSecondaryColor,
-                      borderRadius: BorderRadius.circular(10)),
+                      borderRadius: BorderRadius.circular(10.r)),
                   child: Center(
                       child: Text(
                         'Create Password',
                         style: TextStyle(
                           color: AppColors.appMainColor,
                           fontWeight: FontWeight.w600,
-                          fontSize: 16,
+                          fontSize: 16.sp,
                           fontFamily: 'Poppins.Black',
                         ),
                       )),
@@ -157,14 +155,14 @@ class _CreateNewWalletScreenState extends State<CreateNewWalletScreen> {
                      Get.to(CreateWalletSecondScreen());
                 },
               ),
-              SizedBox(height: mq.height*0.06,),
+              30.verticalSpace,
               Text.rich(
                 TextSpan(
                   children: [
                     TextSpan(
                         text: 'Already have a wallet?  ',
                         style: TextStyle(
-                          fontSize: 14,
+                          fontSize: 14.sp,
                           fontWeight: FontWeight.w500,
                           fontFamily: 'Poppins',
                           color: Color.fromRGBO(152, 152, 152, 1),
@@ -172,7 +170,7 @@ class _CreateNewWalletScreenState extends State<CreateNewWalletScreen> {
                     TextSpan(
                       text: 'Import Wallet',
                       style: TextStyle(
-                          fontSize: 14,
+                          fontSize: 14.sp,
                           fontWeight: FontWeight.w500,
                           fontFamily: 'Poppins',
                           color: AppColors.appSecondaryColor),

@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 
-import '../styles/app-color.dart';
-import '../widget/custom-appbar-widget.dart';
-import 'splash-screen.dart';
+import '../styles/app_color.dart';
+import '../widget/custom_appbar_widget.dart';
 
 class TransactionHistoryScreen extends StatelessWidget {
   const TransactionHistoryScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    Size mq = MediaQuery.of(context).size;
     return  Scaffold(backgroundColor: AppColors.appMainColor,
       appBar: SimpleAppBar(),
       body: Padding(
-        padding:  EdgeInsets.symmetric(horizontal: mq.width*0.07),
+        padding:  EdgeInsets.symmetric(horizontal: 20.w,),
         child: Column(
           children: [
 
@@ -27,32 +27,30 @@ class TransactionHistoryScreen extends StatelessWidget {
                     children: [
                       GestureDetector(onTap: () {
 
-                          Navigator.pop(context);
+                        Get.back();
 
                       },
                           child: Icon(Icons.arrow_back)),
-                      SizedBox(
-                        width: mq.width * 0.03,
-                      ),
+                    10.horizontalSpace,
                       RichText(
                         textAlign: TextAlign.center,
                         text: TextSpan(
                           text: 'Transaction History ',
                           style: TextStyle(
                               fontWeight: FontWeight.w700,
-                              fontSize: 20,
+                              fontSize: 20.sp,
                               color: Colors.black,
                               fontFamily:
-                              'assets/fonts/NunitoSans/NunitoSans-VariableFont_YTLC,opsz,wdth,wght.ttf'),
+                              'NunitoSans'),
                           children: <TextSpan>[
                             TextSpan(
                               text: 'ETH',
                               style: TextStyle(
                                 fontWeight: FontWeight.w700,
                                 color: Colors.grey,
-                                fontSize: 16,
+                                fontSize: 16.sp,
                                 fontFamily:
-                                'assets/fonts/NunitoSans/NunitoSans-VariableFont_YTLC,opsz,wdth,wght.ttf',
+                                'NunitoSans',
                               ),
                             ),
                           ],
@@ -60,10 +58,10 @@ class TransactionHistoryScreen extends StatelessWidget {
                       ),
                     ],
                   ),
-                  SizedBox(height: mq.height*0.05,),
+                  25.verticalSpace,
                   Container(decoration: BoxDecoration(color: Color.fromRGBO(248, 248, 248, 1),),
                     child: Padding(
-                      padding:  EdgeInsets.symmetric(horizontal: mq.width*0.04),
+                      padding:  EdgeInsets.symmetric(horizontal: 10.w),
                       child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Row(mainAxisAlignment: MainAxisAlignment.start,
@@ -71,24 +69,22 @@ class TransactionHistoryScreen extends StatelessWidget {
                               CircleAvatar(
                                 backgroundImage:
                                 AssetImage('assets/images/Ellipse 6.png'),
-                                radius: 18,
+                                radius: 18.r,
                               ),
-                              SizedBox(
-                                width: mq.width * 0.03,
-                              ),
+                              13.horizontalSpace,
                               Column(crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
                                     'Account 01',
                                     style: TextStyle(
-                                        fontSize: 14,
+                                        fontSize: 14.sp,
                                         fontFamily: 'Poppins',
                                         fontWeight: FontWeight.w400),
                                   ),
                                   Text(
                                     'Balannce: 0.0 ETH',
                                     style: TextStyle(
-                                        fontSize: 14,
+                                        fontSize: 14.sp,
                                         fontFamily: 'Poppins',
                                         fontWeight: FontWeight.w400),
                                   ),
@@ -102,10 +98,10 @@ class TransactionHistoryScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                  SizedBox(height:mq.height*0.07 ,),
+                  38.verticalSpace,
                   Container(decoration: BoxDecoration(color: Color.fromRGBO(248, 248, 248, 1),),
                     child: Padding(
-                      padding:  EdgeInsets.symmetric(horizontal: mq.width*0.04),
+                      padding:  EdgeInsets.symmetric(horizontal: 10.w,),
                       child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Row(mainAxisAlignment: MainAxisAlignment.start,
@@ -113,24 +109,22 @@ class TransactionHistoryScreen extends StatelessWidget {
                               CircleAvatar(
                                 backgroundImage:
                                 AssetImage('assets/images/Ellipse 6.png'),
-                                radius: 18,
+                                radius: 18.r,
                               ),
-                              SizedBox(
-                                width: mq.width * 0.025,
-                              ),
+                           13.horizontalSpace,
                               Column(crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
                                     '50.00 ETH',
                                     style: TextStyle(
-                                        fontSize: 14,
+                                        fontSize: 14.sp,
                                         fontFamily: 'Poppins',
                                         fontWeight: FontWeight.w400),
                                   ),
                                   Text(
                                     '10\$',
                                     style: TextStyle(
-                                        fontSize: 14,
+                                        fontSize: 14.sp,
                                         fontFamily: 'Poppins',
                                         fontWeight: FontWeight.w400),
                                   ),

@@ -1,6 +1,20 @@
+buildscript {
+    ext.kotlin_version = '1.8.22'
+    repositories {
+
+        google()  // Make sure this is here
+        mavenCentral()
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        // Add the Maven coordinates and latest version of the plugin
+        classpath 'com.android.tools.build:gradle:7.2.2'
+    classpath 'com.google.gms:google-services:4.4.2'
+    }
+}
 allprojects {
     repositories {
-        google()
+        google()  // Make sure this is here too
         mavenCentral()
     }
 }

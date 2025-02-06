@@ -1,69 +1,76 @@
-import 'package:crypto_wallet_app/widget/custom-appbar-widget.dart';
+import 'package:crypto_wallet_app/widget/custom_appbar_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
-import '../styles/app-color.dart';
-import 'step1-create-new-wallet-screen.dart';
+import '../styles/app_color.dart';
+import 'first_create_new_wallet_screen.dart';
 
 class ImportWalletScreen extends StatelessWidget {
   const ImportWalletScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    Size mq = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: AppColors.appSecondaryColor,
       appBar: CustomAppBar(),
-      body: Column(
-        children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: mq.width * 0.14),
-                child: SingleChildScrollView(
-                  child: Column(
+      body:
+      CustomScrollView(
+        slivers: [
+        SliverFillRemaining(
+        hasScrollBody: false,
+
+        child: Column(
+          children: [
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 18.w),
+                  child:
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
                         'Import Account',
                         style: TextStyle(
                             fontFamily: 'Poppins-Black',
                             fontWeight: FontWeight.w700,
-                            fontSize: 36,
+                            fontSize: 36.sp,
                             color: AppColors.appMainColor),
                       ),
+                      10.verticalSpace,
                       Text(
                         'Import an exsiting wallet or create a new one',
                         style: TextStyle(
                           color: AppColors.appMainColor,
                           fontFamily: 'Poppins-Black',
                           fontWeight: FontWeight.w500,
-                          fontSize: 16,
+                          fontSize: 16.sp,
                         ),
                       ),
                     ],
                   ),
                 ),
-              ),
-            ],
-          ),
-          SizedBox(
-            height: mq.height * 0.1,
-          ),
-          Expanded(
+              ],
+            ),
+          80.verticalSpace,
+            Expanded(
               child: Container(
-            width: mq.width * 1,
-            decoration: BoxDecoration(
+               // constraints: BoxConstraints.expand(),
+                            width: double.infinity,
+                          //  height: double.infinity,
+                            decoration: BoxDecoration(
               color: AppColors.appMainColor,
               borderRadius: BorderRadius.only(
-                topRight: Radius.circular(35.0),
-                topLeft: Radius.circular(35.0),
+                topRight: Radius.circular(35.0.r),
+                topLeft: Radius.circular(35.0.r),
               ),
-            ),
-            child: SingleChildScrollView(
+                            ),
+                            child: SingleChildScrollView(
               child: Padding(
                 padding: EdgeInsets.symmetric(
-                    horizontal: mq.width * 0.055, vertical: mq.height * 0.07),
+                    horizontal: 30.w, vertical: 30.h),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -72,21 +79,19 @@ class ImportWalletScreen extends StatelessWidget {
                       style: TextStyle(
                           fontFamily: 'Poppins-Black',
                           fontWeight: FontWeight.w500,
-                          fontSize: 16),
+                          fontSize: 16.sp),
                     ),
+                    25.verticalSpace,
                     SizedBox(
-                      height: mq.height * 0.04,
-                    ),
-                    SizedBox(
-                      width: mq.width * 0.9,
-                      height: mq.height * 0.07,
+                      width: 310.w,
+                      height: 60.h,
                       child: TextFormField(
                         decoration: new InputDecoration(
                           hintText: "Secret Recovery Phrase",
                           fillColor: Color.fromRGBO(248, 248, 248, 1),
                           filled: true,
                           border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(5.0),
+                            borderRadius: BorderRadius.circular(5.r),
                             borderSide: BorderSide.none,
                           ),
                         ),
@@ -94,22 +99,18 @@ class ImportWalletScreen extends StatelessWidget {
                         style: new TextStyle(
                           color: Color.fromRGBO(152, 152, 152, 1),
                           fontFamily: "Poppins-Regular",
-                          fontSize: 14,
+                          fontSize: 14.sp,
                           fontWeight: FontWeight.w400,
                         ),
                       ),
                     ),
+                   20.verticalSpace,
                     SizedBox(
-                      height: mq.height * 0.04,
-                    ),
-                    SizedBox(
-                      width: mq.width * 0.9,
-                      height: mq.height * 0.07,
+                      width: 310.w,
+                      height: 60.h,
                       child: TextFormField(
                         decoration: new InputDecoration(
                           hintText: "Your Password",
-                          //enabledBorder:InputBorder.none ,
-                          //  focusedBorder:InputBorder.none ,
                           fillColor: Color.fromRGBO(248, 248, 248, 1),
                           filled: true,
                           border: OutlineInputBorder(
@@ -120,29 +121,27 @@ class ImportWalletScreen extends StatelessWidget {
                         keyboardType: TextInputType.emailAddress,
                         style: new TextStyle(
                           fontFamily: "Poppins-Regular",
-                          fontSize: 14,
+                          fontSize: 14.sp,
                           fontWeight: FontWeight.w400,
                           color: Color.fromRGBO(152, 152, 152, 1),
                         ),
                       ),
                     ),
-                    SizedBox(
-                      height: mq.height * 0.09,
-                    ),
+                    60.verticalSpace,
                     InkWell(
                       child: Container(
-                        width: mq.width * 0.9,
-                        height: mq.height * 0.08,
+                        height: 60.h,
+                        width: 310.w,
                         decoration: BoxDecoration(
                             color: AppColors.appSecondaryColor,
-                            borderRadius: BorderRadius.circular(10)),
+                            borderRadius: BorderRadius.circular(10.r)),
                         child: Center(
                             child: Text(
                           'Import Wallet',
                           style: TextStyle(
                             color: AppColors.appMainColor,
                             fontWeight: FontWeight.w600,
-                            fontSize: 16,
+                            fontSize: 16.sp,
                             fontFamily: 'Poppins.Black',
                           ),
                         )),
@@ -151,18 +150,16 @@ class ImportWalletScreen extends StatelessWidget {
                         Get.to(CreateNewWalletScreen());
                       },
                     ),
-                    SizedBox(
-                      height: mq.height * 0.02,
-                    ),
+                    20.verticalSpace,
                     Container(
-                      width: mq.width * 0.9,
-                      height: mq.height * 0.08,
+                      height: 60.h,
+                      width: 310.w,
                       child: Center(
                           child: Text(
                         'Create New Wallet',
                         style: TextStyle(
                             color: AppColors.appSecondaryColor,
-                            fontSize: 16,
+                            fontSize: 16.sp,
                             fontWeight: FontWeight.w600,
                             fontFamily: 'Poppins-Black'),
                       )),
@@ -170,10 +167,14 @@ class ImportWalletScreen extends StatelessWidget {
                   ],
                 ),
               ),
+                            ),
+                          ),
             ),
-          )),
-        ],
+          ],
+        ),
       ),
+      ],
+      )
     );
   }
 }
